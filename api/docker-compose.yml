@@ -1,10 +1,10 @@
-name: api_for_bank
+name: profiles
 services:
   api:
-    image: bankapp
+    image: profiles
     build:
       context: .
-      dockerfile: DockerFile
+      dockerfile: Dockerfile
     depends_on:
       db:
         condition: service_healthy
@@ -13,10 +13,10 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:8080
-      ConnectionStrings__DefaultConnection: Host=db;Port=5432;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${DB_PASSWORD}
+      ConnectionStrings__DefaultConnection: Host=db;Port=5433;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${DB_PASSWORD}
   db:
     image: postgres:17
-    container_name: postgresBankApp
+    container_name: postgresProfiles
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}

@@ -1,14 +1,14 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
-WORKDIR /App
-COPY . ./
+WORKDIR /src
 
-COPY api.csproj /App/
+COPY api.csproj ./
 RUN dotnet restore api.csproj
 
 COPY . .
-RUN dotnet publish -c Release -o out
+RUN dotnet publish api.csproj -c Release -o /app/out
 
-FROM  mcr.microsoft.com/dotnet/aspnet:10.0 AS final
-WORKDIR /App
-COPY --from=build /App/out ./
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
+WORKDIR /app
+COPY --from=build /app/out .
+
 ENTRYPOINT ["dotnet", "api.dll"]
