@@ -15,9 +15,9 @@ namespace api.Models
         public string Name { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public int Age { get; set; }
-        public string Skils { get; set; } = string.Empty;
+        public string Skills { get; set; } = string.Empty;
         public string Application { get; set; } = string.Empty;
-        public List<Vacancies> Vacancies { get; set; } = null!;
+        public List<Vacancy> Vacancy { get; set; } = null!;
 
         public enum Male
         {

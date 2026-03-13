@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace api.Models
 {
-    public class Skil
+    public class Skill
     {
         [Key]
         public int Id { get; set; }

@@ -1,4 +1,5 @@
 
+using api.Models;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -10,5 +11,9 @@ namespace api.Data
         : base(dbContextOptions)
         {
         }
+
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Vacancy> Vacancies { get; set; }
+
     }
 }
