@@ -11,13 +11,18 @@ namespace api.Models
     public class Profile
     {
         [Key]
-        public Guid Id { get; set; } = Guid.Empty;
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public int Age { get; set; }
         public string Skills { get; set; } = string.Empty;
         public string Application { get; set; } = string.Empty;
         public List<Vacancy> Vacancy { get; set; } = null!;
+        public Guid UserId { get; set; }
+
+        [ForeignKey(nameof(UserId))]
+        public User User { get; set; } = null!;
+        public int MyProperty { get; set; }
 
         public enum Male
         {
