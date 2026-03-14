@@ -14,6 +14,8 @@ namespace api.Data
 
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Vacancy> Vacancies { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
 
     }
 }

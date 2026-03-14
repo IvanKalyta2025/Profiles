@@ -8,6 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Models
 {
+    public enum Gender
+    {
+        Man,
+        Woman
+    }
     public class Profile
     {
         [Key]
@@ -17,17 +22,13 @@ namespace api.Models
         public int Age { get; set; }
         public string Skills { get; set; } = string.Empty;
         public string Application { get; set; } = string.Empty;
-        public List<Vacancy> Vacancy { get; set; } = null!;
-        public Guid UserId { get; set; }
+        public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
+        public List<Vacancy> Vacancies { get; set; } = new();
+        public Gender Gender { get; set; }
 
         [ForeignKey(nameof(UserId))]
         public User User { get; set; } = null!;
-        public int MyProperty { get; set; }
+        public Guid UserId { get; set; }
 
-        public enum Male
-        {
-            Man,
-            Woman
-        }
     }
 }

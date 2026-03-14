@@ -16,7 +16,7 @@ services:
       ConnectionStrings__DefaultConnection: Host=db;Port=5433;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${DB_PASSWORD}
   db:
     image: postgres:17
-    container_name: postgresProfiles
+    container_name: profilesDB
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
