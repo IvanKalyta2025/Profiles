@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Models;
 using api.Dtos;
-using api.Dtos.UserDto;
 namespace api.Mappers
 {
     public static class UserMapper
@@ -14,7 +13,8 @@ namespace api.Mappers
         {
             return new UserDto
             {
-                Id = user.Id
+                Id = user.Id,
+                UserName = user.UserName
             };
         }
     }

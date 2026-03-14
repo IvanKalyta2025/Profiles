@@ -1,6 +1,6 @@
-using api.Models;
+using api.Dtos;
 
-namespace api.Dtos.ProfileDto
+namespace api.Dtos
 {
     public class ProfileDto
     {
@@ -10,5 +10,6 @@ namespace api.Dtos.ProfileDto
         public int Age { get; set; }
         public string Skills { get; set; } = string.Empty;
         public string Application { get; set; } = string.Empty;
+        public UserDto User { get; set; } = null!;
     }
 }

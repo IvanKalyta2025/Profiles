@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using api.Dtos;
+using api.Models;
+
+namespace api.Mappers
+{
+    public static class ProfileMapper
+    {
+        public static ProfileDto ProfileToDto(this Profile profile)
+        {
+            return new ProfileDto
+            {
+                Id = profile.Id,
+                Name = profile.Name,
+                LastName = profile.LastName,
+                Age = profile.Age,
+                Skills = profile.Skills,
+                Application = profile.Application,
+                User = profile.User.UserToDto()
+            };
+        }
+    }
+}
