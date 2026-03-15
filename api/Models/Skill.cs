@@ -14,9 +14,9 @@ namespace api.Models
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
 
-        [ForeignKey(nameof(IdForProfile))]
+        [ForeignKey(nameof(UserId))]
         public User User { get; set; } = null!;
-        public Guid IdForProfile { get; set; }
+        public int UserId { get; set; }
 
 
     }

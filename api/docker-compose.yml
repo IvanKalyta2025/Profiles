@@ -13,7 +13,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:8080
-      ConnectionStrings__DefaultConnection: Host=db;Port=5433;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${DB_PASSWORD}
+      ConnectionStrings__DefaultConnection: Host=db;Port=5432;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${DB_PASSWORD}
   db:
     image: postgres:17
     container_name: profilesDB

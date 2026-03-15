@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using api.Data;
 using api.Interfaces;
 using api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Repository
 {
@@ -19,7 +20,9 @@ namespace api.Repository
 
         public async Task<Profile?> GetByIdAsync(int id) //профиль в базе должен быть, так что он не может быть ноль.
         {
-            return await _applicationDbContex.Profiles.FindAsync(id);
+            return await _applicationDbContex.Profiles
+            .Include(p => p.User)
+            .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<Profile> CreateAsync(Profile profile)
@@ -27,7 +30,6 @@ namespace api.Repository
             await _applicationDbContex.Profiles.AddAsync(profile);
             await _applicationDbContex.SaveChangesAsync();
             return profile;
-
         }
     }
 }

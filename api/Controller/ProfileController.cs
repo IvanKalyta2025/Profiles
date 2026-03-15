@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using api.Dtos;
 using api.Mappers;
+using api.Models;
 namespace api.Controller
 {
     [ApiController]
@@ -30,6 +31,16 @@ namespace api.Controller
             if (profile == null)
                 return NotFound();
             return Ok(profile.ProfileToDto());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateProfile([FromBody] ProfileDto profileDto)
+        {
+            if (profileDto == null)
+            {
+                return BadRequest();
+            }
+
         }
     }
 }
