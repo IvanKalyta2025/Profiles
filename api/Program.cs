@@ -1,5 +1,7 @@
 using api.Data;
 using Microsoft.EntityFrameworkCore;
+using api.Interfaces;
+using api.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 
 var app = builder.Build();
 

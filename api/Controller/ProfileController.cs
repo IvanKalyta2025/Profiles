@@ -17,7 +17,7 @@ namespace api.Controller
     {
         private readonly IProfileRepository _profileRepository;
 
-        public ProfileController(ProfileRepository profileRepository)
+        public ProfileController(IProfileRepository profileRepository)
         {
             _profileRepository = profileRepository;
         }
