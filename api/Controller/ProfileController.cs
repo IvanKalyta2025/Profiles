@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using api.Interfaces;
-using api.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using api.Dtos;
 using api.Mappers;
-using api.Models;
+
+
 namespace api.Controller
 {
     [ApiController]
@@ -34,12 +28,12 @@ namespace api.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateProfile([FromBody] ProfileDto profileDto)
+        public async Task<IActionResult> CreateProfile([FromBody] ProfileCreateDto profileCreateDto)
         {
-            if (profileDto == null)
-            {
+            if (profileCreateDto == null)
                 return BadRequest();
-            }
+
+            var profileModel = profileCreateDto.ToProfileFromCreate();
 
         }
     }

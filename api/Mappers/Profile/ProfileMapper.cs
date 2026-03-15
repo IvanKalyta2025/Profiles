@@ -22,7 +22,16 @@ namespace api.Mappers
                 User = profile.User.UserToDto()
             };
         }
-
-
+        public static Profile ToProfileFromCreate(this ProfileCreateDto profileCreateDto)
+        {
+            return new Profile
+            {
+                Name = profileCreateDto.Name,
+                LastName = profileCreateDto.LastName,
+                Age = profileCreateDto.Age,
+                Skills = profileCreateDto.Skills,
+                Application = profileCreateDto.Application
+            };
+        }
     }
 }

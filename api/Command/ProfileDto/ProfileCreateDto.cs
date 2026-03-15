@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace api.Command.ProfileDto
+namespace api.Dtos
 {
     public class ProfileCreateDto
     {
