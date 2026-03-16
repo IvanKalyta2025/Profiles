@@ -12,5 +12,7 @@ namespace api.Dtos
         public int Age { get; set; }
         public string Skills { get; set; } = string.Empty;
         public string Application { get; set; } = string.Empty;
+        public Guid UserId { get; set; } // не забыть.
+
     }
 }

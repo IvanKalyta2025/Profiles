@@ -28,7 +28,7 @@ namespace api.Models
 
         [ForeignKey(nameof(UserId))]
         public User User { get; set; } = null!;
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
     }
 }

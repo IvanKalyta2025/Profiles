@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace api.Dtos
+namespace api.Command.UserDto
 {
-    public class UserDto
+    public class UserCreateDto
     {
-        public Guid Id { get; set; }
         public string UserName { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
     }
 }

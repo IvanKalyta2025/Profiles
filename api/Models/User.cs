@@ -7,7 +7,7 @@ namespace api.Models
 {
     public class User
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string UserName { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
     }

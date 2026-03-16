@@ -27,13 +27,15 @@ namespace api.Controller
             return Ok(profile.ProfileToDto());
         }
 
-        [HttpPost]
+        [HttpPost("/create")]
         public async Task<IActionResult> CreateProfile([FromBody] ProfileCreateDto profileCreateDto)
         {
             if (profileCreateDto == null)
                 return BadRequest();
 
             var profileModel = profileCreateDto.ToProfileFromCreate();
+            await _profileRepository.CreateAsync(profileModel);
+            return CreatedAtAction(nameof(GetProfile), new { id = profileModel.Id }, profileModel.ProfileToDto());
 
         }
     }
