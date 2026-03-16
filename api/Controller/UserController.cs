@@ -7,7 +7,7 @@ using api.Mappers;
 namespace api.Controller
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/user")]
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepo;
@@ -35,7 +35,7 @@ namespace api.Controller
 
             var userAccaunt = userCreateDto.ToUserFromCreate();
             await _userRepo.CreateAsync(userAccaunt);
-            return CreatedAtAction(nameof(CreateAsync), new { id = userAccaunt.Id }, userAccaunt.UserToDto());
+            return CreatedAtAction(nameof(GetByIdAsync), new { id = userAccaunt.Id }, userAccaunt.UserToDto());
         }
     }
 }
