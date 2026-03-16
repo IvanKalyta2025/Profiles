@@ -8,6 +8,7 @@ namespace api.Interfaces
 {
     public interface IUserRepository
     {
+        Task<User?> GetIdAsync(Guid id);
         Task<User> CreateAsync(User user);
     }
 }

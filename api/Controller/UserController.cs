@@ -17,6 +17,15 @@ namespace api.Controller
         {
             _userRepo = userRepository;
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdAsync([FromRoute] Guid id)
+        {
+            var userAccaunt = await _userRepo.GetIdAsync(id);
+            if (userAccaunt == null)
+                return NotFound();
+
+            return Ok(userAccaunt.UserToDto());
+        }
 
         [HttpPost("/createuser")]
         public async Task<IActionResult> CreateAsync([FromBody] UserCreateDto userCreateDto)
