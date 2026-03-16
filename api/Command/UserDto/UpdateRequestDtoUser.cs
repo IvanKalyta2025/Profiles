@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace api.Models
+namespace api.Command.UserDto
 {
-    public class User
+    public class UpdateRequestDtoUser
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
         public string Login { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
     }

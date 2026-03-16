@@ -15,14 +15,14 @@ namespace api.Mappers
             return new UserDto
             {
                 Id = user.Id,
-                UserName = user.UserName
+                UserName = user.Login
             };
         }
         public static User ToUserFromCreate(this UserCreateDto userCreateDto)
         {
             return new User
             {
-                UserName = userCreateDto.UserName,
+                Login = userCreateDto.UserName,
                 Password = userCreateDto.Password
             }
             ;

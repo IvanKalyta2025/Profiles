@@ -8,6 +8,7 @@ using api.Data;
 using api.Models;
 using api.Mappers;
 using Microsoft.AspNetCore.Http.HttpResults;
+using api.Command.UserDto;
 
 namespace api.Repository
 {
@@ -32,6 +33,20 @@ namespace api.Repository
             await _applicationDbContex.Users.AddAsync(user);
             await _applicationDbContex.SaveChangesAsync();
             return user;
+        }
+        public async Task<User?> UpdateAsync(Guid id, UpdateRequestDtoUser updateRequestDtoUser)
+        {
+            var userModel = await _applicationDbContex.Users.FirstOrDefaultAsync(i => i.Id == id);
+            if (userModel == null)
+            {
+                return null;
+            }
+
+            userModel.Login = updateRequestDtoUser.Login;
+            userModel.Password = updateRequestDtoUser.Password;
+
+            await _applicationDbContex.SaveChangesAsync();
+            return userModel;
         }
     }
 }
