@@ -3,6 +3,7 @@ using api.Interfaces;
 using api.Command.UserDto;
 using Microsoft.AspNetCore.Mvc;
 using api.Mappers;
+using api.Repository;
 
 namespace api.Controller
 {
@@ -17,7 +18,7 @@ namespace api.Controller
         {
             _userRepo = userRepository;
         }
-        [HttpGet("{id}")]
+        [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] Guid id)
         {
             var userAccaunt = await _userRepo.GetIdAsync(id);
@@ -27,7 +28,7 @@ namespace api.Controller
             return Ok(userAccaunt.UserToDto());
         }
 
-        [HttpPost("/createuser")]
+        [HttpPost]
         public async Task<IActionResult> CreateAsync([FromBody] UserCreateDto userCreateDto)
         {
             if (userCreateDto == null)

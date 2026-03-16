@@ -30,7 +30,9 @@ namespace api.Mappers
                 LastName = profileCreateDto.LastName,
                 Age = profileCreateDto.Age,
                 Skills = profileCreateDto.Skills,
-                Application = profileCreateDto.Application
+                Application = profileCreateDto.Application,
+                Gender = profileCreateDto.Gender,
+                UserId = profileCreateDto.UserId
             };
         }
     }

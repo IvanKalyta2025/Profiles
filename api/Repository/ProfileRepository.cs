@@ -29,6 +29,10 @@ namespace api.Repository
         {
             await _applicationDbContex.Profiles.AddAsync(profile);
             await _applicationDbContex.SaveChangesAsync();
+
+            await _applicationDbContex.Entry(profile)
+                .Reference(p => p.User)
+                .LoadAsync();
             return profile;
         }
     }
