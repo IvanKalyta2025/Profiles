@@ -48,5 +48,13 @@ namespace api.Repository
             await _applicationDbContex.SaveChangesAsync();
             return userModel;
         }
+        public async Task<User?> DeleteAsync(Guid id)
+        {
+            var userModel = await _applicationDbContex.Users.FirstOrDefaultAsync(i => i.Id == id);
+            if (userModel == null)
+                return null;
+            _applicationDbContex.Users.Remove(userModel);
+            return userModel;
+        }
     }
 }
