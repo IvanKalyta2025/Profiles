@@ -40,6 +40,7 @@ namespace api.Controller
         }
 
         [HttpPut]
+        [Route("/update/{id:guid}")]
         public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, UpdateRequestDtoUser updateRequestDtoUser)
         {
             var userModel = await _userRepo.UpdateAsync(id, updateRequestDtoUser);
@@ -48,10 +49,10 @@ namespace api.Controller
             return Ok(userModel.UserToDto());
         }
         [HttpDelete]
-        [Route("/delete/{id}:{guid}")]
+        [Route("/delete/{id:guid}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] Guid id)
         {
-            var userModel = _userRepo.DeleteAsync(id);
+            var userModel = await _userRepo.DeleteAsync(id);
             if (userModel == null)
             {
                 return NotFound();

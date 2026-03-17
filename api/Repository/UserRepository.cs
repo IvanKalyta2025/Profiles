@@ -54,6 +54,7 @@ namespace api.Repository
             if (userModel == null)
                 return null;
             _applicationDbContex.Users.Remove(userModel);
+            await _applicationDbContex.SaveChangesAsync();
             return userModel;
         }
     }

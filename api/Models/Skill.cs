@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace api.Models
 {
+    public enum Level
+    {
+        Low,
+        Medium,
+        Hight
+    }
     public class Skill
     {
         [Key]
@@ -17,7 +23,6 @@ namespace api.Models
         [ForeignKey(nameof(UserId))]
         public User User { get; set; } = null!;
         public Guid UserId { get; set; }
-
-
+        public Level MarkerForLevel { get; set; }
     }
 }
