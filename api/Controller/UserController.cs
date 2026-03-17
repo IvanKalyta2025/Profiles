@@ -38,8 +38,17 @@ namespace api.Controller
             await _userRepo.CreateAsync(userAccaunt);
             return CreatedAtAction(nameof(GetByIdAsync), new { id = userAccaunt.Id }, userAccaunt.UserToDto());
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, UpdateRequestDtoUser updateRequestDtoUser)
+        {
+            var userModel = await _userRepo.UpdateAsync(id, updateRequestDtoUser);
+            if (userModel == null)
+                return NotFound();
+            return Ok(userModel.UserToDto());
+        }
         [HttpDelete]
-        [Route("{id}:{guid}")]
+        [Route("/delete/{id}:{guid}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] Guid id)
         {
             var userModel = _userRepo.DeleteAsync(id);
