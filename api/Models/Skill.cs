@@ -19,10 +19,10 @@ namespace api.Models
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
+        public Level MarkerForLevel { get; set; }
 
         [ForeignKey(nameof(UserId))]
         public User User { get; set; } = null!;
         public Guid UserId { get; set; }
-        public Level MarkerForLevel { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace api.Interfaces
 {
     public interface IProfileRepository
     {
-        Task<Profile> GetByIdAsync(int id);
+        Task<Profile?> GetByIdAsync(int id);
         Task<Profile> CreateAsync(Profile profile);
     }
 }

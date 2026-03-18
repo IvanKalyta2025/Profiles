@@ -11,7 +11,7 @@ namespace api.Interfaces
     public interface ISkillRepository
     {
         Task<Skill?> GetByIdAsync(int id);
-        Task<Skill> CreateAsync(SkillDto skillDto);
-        Task<Skill?> UpdateByAsync(int id, UpdateRequestSkillDto updateRequestSkillDto);
+        Task<Skill> CreateAsync(Skill skill);
+        Task<Skill?> UpdateAsync(int id, UpdateRequestSkillDto updateRequestSkillDto);
     }
 }

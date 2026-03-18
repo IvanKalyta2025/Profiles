@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Command.SkillDto;
+using api.Command.UserDto;
 using api.Data;
 using api.Dtos;
 using api.Interfaces;
 using api.Models;
 using api.Repository;
 using Microsoft.EntityFrameworkCore;
+using Moq;
 
 namespace api.Repository
 {
@@ -37,5 +40,11 @@ namespace api.Repository
                 .LoadAsync();
             return skill;
         }
+
+        public async Task<Skill?> UpdateAsync(int id, UpdateRequestSkillDto updateRequestSkillDto)
+        {
+            var skillModel = _applicationDbContext.Skills.FirstOrDefaultAsync(i => i.Id == id);
+        }
+
     }
 }
