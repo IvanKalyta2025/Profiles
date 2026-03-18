@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Command;
 using api.Command.SkillDto;
-using api.Command.UserDto;
 using api.Data;
 using api.Dtos;
 using api.Interfaces;
@@ -43,7 +43,16 @@ namespace api.Repository
 
         public async Task<Skill?> UpdateAsync(int id, UpdateRequestSkillDto updateRequestSkillDto)
         {
-            var skillModel = _applicationDbContext.Skills.FirstOrDefaultAsync(i => i.Id == id);
+            var skillModel = await _applicationDbContext.Skills.FirstOrDefaultAsync(i => i.Id == id);
+            if (skillModel == null)
+                return null;
+
+            skillModel.Title = updateRequestSkillDto.Title;
+            skillModel.Description = updateRequestSkillDto.Description;
+
+            await _applicationDbContext.SaveChangesAsync();
+            return skillModel;
+
         }
 
     }
