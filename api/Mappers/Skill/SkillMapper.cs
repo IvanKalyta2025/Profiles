@@ -25,7 +25,8 @@ namespace api.Mappers
                 Id = createRequestSkillDto.Id,
                 Title = createRequestSkillDto.Title,
                 Description = createRequestSkillDto.Description,
-
+                MarkerForLevel = createRequestSkillDto.MarkerForLevel,
+                UserId = createRequestSkillDto.UserId
             };
         }
 

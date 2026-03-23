@@ -12,8 +12,8 @@ using api.Data;
 namespace api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260317113226_ProfileDB")]
-    partial class ProfileDB
+    [Migration("20260320071520_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,6 +79,9 @@ namespace api.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("MarkerForLevel")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Title")
                         .IsRequired()

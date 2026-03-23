@@ -8,20 +8,18 @@ using Microsoft.Extensions.Logging;
 using api.Data;
 using api.Interfaces;
 using api.Mappers;
-using api.Models;
-using api.Dtos;
 using api.Command;
 
 namespace api.Controller
 {
     [ApiController]
-    [Route("/api/skill")]
-    public class SkillConrtoller : ControllerBase
+    [Route("/api/skills")]
+    public class SkillController : ControllerBase
     {
         private readonly ISkillRepository _skillRepo;
 
 
-        public SkillConrtoller(ISkillRepository skillRepository)
+        public SkillController(ISkillRepository skillRepository)
         {
             _skillRepo = skillRepository;
         }
@@ -35,7 +33,7 @@ namespace api.Controller
 
             return Ok(skillBlock.SkillToDto());
         }
-        [HttpPost("/create")]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateSkillAsync([FromBody] CreateRequestSkillDto createRequestSkillDto)
 
         {

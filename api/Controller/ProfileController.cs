@@ -27,7 +27,7 @@ namespace api.Controller
             return Ok(profile.ProfileToDto());
         }
 
-        [HttpPost("/create")]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateProfile([FromBody] ProfileCreateDto profileCreateDto)
         {
             if (profileCreateDto == null)
